@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Syntax Striker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HOME SCREEN ================= -->
+
+    <div id="home" class="screen">
+
+        <div class="home-card">
+
+            <div class="logo">
+                <span>&lt;/&gt;</span>
+                Syntax Striker
+            </div>
+
+            <div class="small-title">
+                PROGRAMMING × PUZZLES
+            </div>
+
+            <h1>
+                Learn Programming<br>
+                Through <span>Puzzles.</span>
+            </h1>
+
+            <p>
+                Choose a programming language and crossword size,
+                then generate a programming puzzle.
+            </p>
+
+
+            <!-- GAME SETTINGS -->
+
+            <div class="settings">
+
+                <div class="setting">
+
+                    <label for="language">
+                        Programming Language
+                    </label>
+
+                    <select id="language">
+
+                        <option value="c">
+                            C
+                        </option>
+
+                        <option value="cpp">
+                            C++
+                        </option>
+
+                        <option value="java">
+                            Java
+                        </option>
+
+                        <option value="python">
+                            Python
+                        </option>
+
+                        <option value="javascript">
+                            JavaScript
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="size-settings">
+
+                    <div class="setting">
+
+                        <label for="width">
+                            Width
+                        </label>
+
+                        <select id="width"></select>
+
+                    </div>
+
+
+                    <div class="setting">
+
+                        <label for="height">
+                            Height
+                        </label>
+
+                        <select id="height"></select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button onclick="startGame()">
+                Generate Crossword →
+            </button>
+
+
+            <div class="settings-note">
+
+                Crossword size:
+                <strong>5 × 5</strong>
+                minimum to
+                <strong>15 × 15</strong>
+                maximum
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= GAME SCREEN ================= -->
+
+    <div id="game" class="screen hidden">
+
+        <div class="game-card">
+
+
+            <!-- HEADER -->
+
+            <div class="game-header">
+
+                <div class="logo">
+                    <span>&lt;/&gt;</span>
+                    Syntax Striker
+                </div>
+
+
+                <div class="game-info">
+
+                    <div class="language-display">
+
+                        <span>LANGUAGE</span>
+
+                        <strong id="languageDisplay">
+                            C
+                        </strong>
+
+                    </div>
+
+
+                    <div class="size-display">
+
+                        <span>GRID</span>
+
+                        <strong id="sizeDisplay">
+                            7 × 7
+                        </strong>
+
+                    </div>
+
+
+                    <div class="score">
+
+                        SCORE
+
+                        <strong id="score">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="game-title">
+
+                <div class="small-title">
+                    GENERATED CROSSWORD
+                </div>
+
+                <h1>
+                    Programming Crossword
+                </h1>
+
+                <p id="gameDescription">
+                    Fill in the correct programming terms.
+                </p>
+
+            </div>
+
+
+            <!-- MAIN GAME -->
+
+            <div class="game-content">
+
+
+                <!-- CROSSWORD -->
+
+                <div class="crossword-area">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Crossword
+                        </h2>
+
+                        <span id="wordCount">
+                            0 words
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="crossword"
+                        class="crossword">
+                    </div>
+
+
+                    <div class="buttons">
+
+                        <button
+                            onclick="checkAnswers()">
+
+                            ✓ Check Answers
+
+                        </button>
+
+
+                        <button
+                            class="hint-btn"
+                            onclick="showHint()">
+
+                            💡 Hint
+
+                        </button>
+
+
+                        <button
+                            class="new-btn"
+                            onclick="generateNewPuzzle()">
+
+                            ↻ New Puzzle
+
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="message"
+                        class="message">
+
+                        Enter your answers
+                        and check them.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- CLUES -->
+
+                <div class="clues">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Clues
+                        </h2>
+
+                    </div>
+
+
+                    <div class="clue-section">
+
+                        <h3>
+                            ACROSS
+                        </h3>
+
+                        <div id="acrossClues">
+                        </div>
+
+                    </div>
+
+
+                    <div class="clue-section">
+
+                        <h3>
+                            DOWN
+                        </h3>
+
+                        <div id="downClues">
+                        </div>
+
+                    </div>
+
+
+                    <div class="hint-box">
+
+                        <strong>
+                            💡 Hint
+                        </strong>
+
+                        <p id="hintText">
+
+                            Need help?
+                            Click the Hint button
+                            to reveal one letter.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
